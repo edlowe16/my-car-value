@@ -10,7 +10,7 @@ import { User } from './users/user.entity';
 import { Report } from './reports/report.entity';
 import { config } from 'process';
 import { TypeOrmConfigService } from './config/typeorm.config';
-const cookieSession = require('cookie-Session');
+const cookieSession = require('cookie-session');
 const dbConfig = require('../ormconfig.js');
 
 
@@ -21,12 +21,12 @@ const dbConfig = require('../ormconfig.js');
       envFilePath: `.env.${process.env.NODE_ENV}`
     }),
     TypeOrmModule.forRootAsync({useClass: TypeOrmConfigService}),
-    /* TypeOrmModule.forRoot({
+    TypeOrmModule.forRoot({
     type: 'sqlite',
     database: 'db.sqlite',
     entities: [User, Report],
     synchronize: true
-  }),  */
+  }), 
   UsersModule, ReportsModule],
   controllers: [AppController],
   providers: [AppService, 
