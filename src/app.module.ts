@@ -21,12 +21,12 @@ const dbConfig = require('../ormconfig.js');
       envFilePath: `.env.${process.env.NODE_ENV}`
     }),
     TypeOrmModule.forRootAsync({useClass: TypeOrmConfigService}),
-    /* TypeOrmModule.forRoot({
+    TypeOrmModule.forRoot({
     type: 'sqlite',
     database: 'db.sqlite',
     entities: [User, Report],
     synchronize: true
-  }),  */
+  }), 
   UsersModule, ReportsModule],
   controllers: [AppController],
   providers: [AppService, 
